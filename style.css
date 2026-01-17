@@ -1,0 +1,210 @@
+/* ========== GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.gradient-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ffe4f1, #ffc0cb, #fff5f8);
+  color: #4a1f2f;
+}
+
+/* ========== LAYOUT ========== */
+.center-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.9rem;
+}
+
+.sub-text {
+  max-width: 420px;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ========== MAIN CARDS (INDEX + INVITE) ========== */
+.floating-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+  max-width: 480px;
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+.floating-card.big {
+  max-width: 640px;
+}
+
+.floating-card h1 {
+  margin-bottom: 0.75rem;
+}
+
+.floating-card p {
+  margin-bottom: 0.6rem;
+}
+
+.highlight {
+  color: #e91e63;
+  font-weight: 700;
+}
+
+.question {
+  margin: 1.2rem 0 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* ========== BUTTONS ========== */
+.primary-btn,
+.ghost-btn {
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.25s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #ff7eb3, #ff4081);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(255, 64, 129, 0.5);
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 2px solid #ff4081;
+  color: #ff4081;
+}
+
+.ghost-btn:hover {
+  background: #ff4081;
+  color: #fff;
+}
+
+.btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.answer-text {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+
+/* ========== BIG RED CURTAIN CARD (MEMORIES PAGE) ========== */
+.curtain-wrapper {
+  width: 100%;
+  max-width: 420px;   /* medium size, center */
+  margin: 2rem auto 0;
+}
+
+.big-curtain-card {
+  position: relative;
+  width: 100%;
+  padding-top: 120%;  /* aspect ratio, not too tall */
+  overflow: hidden;
+  border-radius: 22px;
+  cursor: pointer;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.16);
+}
+
+/* front red layer */
+.curtain-front {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, #ff7f7f, #b30021);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff5f7;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: center;
+  padding: 1.5rem;
+  z-index: 2;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.curtain-text {
+  font-size: 1.1rem;
+  animation: textPulse 1.8s ease-in-out infinite;
+}
+
+/* back = actual photo */
+.curtain-back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.curtain-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  transition: transform 0.8s ease;
+}
+
+/* when open: slide curtain up, reveal + de-zoom photo */
+.big-curtain-card.open .curtain-front {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.big-curtain-card.open .curtain-back img {
+  transform: scale(1);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes textPulse {
+  0%   { transform: scale(1); opacity: 0.85; }
+  50%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+
+@keyframes floatCard {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .floating-card {
+    padding: 1.7rem 1.4rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}

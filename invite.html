@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>One Question for xyz</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="gradient-bg">
+  <section class="center-section">
+    <div class="floating-card big">
+      <h1>So… xyz 💌</h1>
+      <p>
+        There’s this party coming up — lights, music, crowd,  
+        sab kuchh hoga.  
+        Lekin <span class="highlight">mere liye</span> sabse important  
+        sirf ek entry hogi.
+      </p>
+      <p>
+        Imagine: door open hota hai,  
+        aur aap walk in kar rahi ho…  
+        but this time, <span class="highlight">mere</span> saath.
+      </p>
+      <p class="question">
+        Toh, will you be my entry partner for the party?
+      </p>
+
+      <div class="btn-row">
+        <button id="yes-btn" class="primary-btn" onclick="yesClicked()">
+          Yes, let's go 🎉
+        </button>
+        <button id="think-btn" class="ghost-btn" onclick="thinkClicked()">
+          I’ll think 👀
+        </button>
+      </div>
+
+      <p id="answer-text" class="answer-text">
+        (Hint: Universe bhi “Yes” hi suggest kar raha hai… bas tumhara click bacha hai.)
+      </p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
