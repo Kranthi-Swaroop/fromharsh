@@ -8,7 +8,7 @@ function yesClicked() {
 
   if (el) {
     el.textContent =
-      "Yay! Then it's a date – entry together, full hype, zero competition. 🎉 Ab party mein spotlight thoda zyada hamari entry pe hi rahegi.";
+      "Yay! Then it's a date.";
   }
 
   if (yesBtn) {
